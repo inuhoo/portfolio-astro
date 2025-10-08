@@ -1,11 +1,10 @@
 ---
 const props = Astro.props;
-const STRAPI_ROOT = import.meta.env.STRAPI_ROOT;
 ---
 
 <header class="header">
   {props.logo?.url && (
-    <img src=`${STRAPI_ROOT}${props.logo.url}` alt="Logo" style="height: 50px;" />
+    <img src=`${props.logo.url}` alt="Logo" style="height: 50px;" />
   )}
   <h2>{props.site_title || "test"}</h2>
 </header>
