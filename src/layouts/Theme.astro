@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 const props = Astro.props;
+const STRAPI_ROOT = import.meta.env.STRAPI_ROOT;
 ---
 
 <html lang="en">
@@ -9,7 +10,7 @@ const props = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={props.default_description} />
     <title>{props.site_name}</title>
-    <link rel="icon" href=`http://localhost:1337${props.favicon}` />
+    <link rel="icon" href=`${STRAPI_ROOT}${props.Favicon.url}` />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
     <!-- Add any other common <head> tags here -->
   </head>
