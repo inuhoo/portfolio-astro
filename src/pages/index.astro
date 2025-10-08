@@ -1,0 +1,22 @@
+---
+import Header from '../components/header.astro';
+import Theme from "../layouts/Theme.astro";
+const STRAPI_ROOT = import.meta.env.STRAPI_ROOT;
+
+const resp = await fetch(`${STRAPI_ROOT}/api/global-setting?populate=*`);
+const json= await resp.json();
+const globalData = json.data
+
+---
+
+<Theme {...globalData}>
+  <Header {...globalData} STRAPI_ROOT={STRAPI_ROOT} />
+  <h1>Adam Snape Creative Services</h1>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam tempora   <a href="">adamsnape.com</a> temporibus est nulla molestiae harum, libero architecto at iste consequatur cupiditate nemo illum itaque ratione distinctio asperiores, rerum repellat in.
+
+  </p>
+  <blockquote>Thinking about design is hard, but not thinking about it can be disastrous</blockquote>
+  <figcaption>Ralph Caplan</figcaption>
+  <button>click me now</button>
+</Theme>
+
