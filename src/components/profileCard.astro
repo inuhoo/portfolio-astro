@@ -1,5 +1,7 @@
 ---
 import { renderRTF } from '../utils/strapiParser';
+import { IconBrandLinkedin, IconBrandBluesky, IconBrandInstagram, IconAt, IconMapPin } from '@tabler/icons-react';
+
 const STRAPI_ROOT = import.meta.env.STRAPI_ROOT;
 
 const resp = await fetch(`${STRAPI_ROOT}/api/profile-card?populate=*`);
@@ -15,9 +17,37 @@ const renderedBio = renderRTF(profileData.bio);
       )}
        <div class="profile-card--content">
         <h1 class="h2 center">{profileData.name}</h1>
+        <div class="data text-small">
+        <a href="https://www.google.com/maps/@53.2542252,-1.9263802,12z" target="_blank" class="data--item">
+            <IconMapPin stroke={1.5} /> Buxton UK
+        </a>
+        <div class="data--item">
+            <IconAt stroke={1.5} />snapexyz
+        </div>
+        </div>
            <div set:html={renderedBio} />
-           <a href="mailto:adam@snape.xyz" class="btn-primary">Contact me</a>
-       </div>
+          <div class="profile-card--skills">
+            <div class="skill">Brand Strategy</div>
+            <div class="skill">Visual Identity Design</div>
+            <div class="skill">Web Development</div>
+            <div class="skill language">HTML</div>
+            <div class="skill language">CSS</div>
+            <div class="skill language">JS</div>
+            <div class="skill language">React</div>
+            <div class="skill language">Astro</div>
+            <div class="skill language">Strapi</div>
+
+          </div>
+
+           <div class="flex-links">
+               <div class="socials">
+                <a href="https://www.linkedin.com/in/snapexyz/" target="_blank"><IconBrandLinkedin stroke={2} /></a>
+             <a href="https://bsky.app/profile/adam.snape.xyz"><IconBrandBluesky stroke={2} /></a>
+             <a href="https://www.instagram.com/snapexyz"><IconBrandInstagram stroke={2} /></a>
+            </div>
+               <a href="mailto:adam@snape.xyz" class="btn-primary">Get in touch</a>
+           </div>
+        </div>
   </div>
 
 
@@ -30,6 +60,40 @@ const renderedBio = renderRTF(profileData.bio);
 
     h1 {
         font-size: var(--fs-h4);
+        margin-bottom: 1rem;;
+    }
+
+
+    .data,
+        .data--item {
+                margin: 0 0 1.5rem;
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+    }
+
+    .data--item {
+    gap: 0.5ch;
+    align-items: center;
+    }
+
+    .socials,
+    .profile-card--skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        font-size: var(--fs-s);
+    }
+
+    .skill {
+        background-color: var(--clr-accent);
+        padding: 0.5rem 1rem;
+        border-radius: 2em;
+        min-height: 1.2em;
+
+        &.language {
+            background-color: var(--clr-off-white);
+        }
     }
 
     .profile-card--content{
@@ -38,7 +102,7 @@ const renderedBio = renderRTF(profileData.bio);
         padding-top: calc( 50px + 1rem);
         margin-top: -50px;
         border-top: 1px solid color(from var(--clr-secondary) srgb r g b / 0.5);
-        background: color(from var(--clr-secondary) srgb r g b / 0.05);
+        background: var(--clr-white);
         position: relative;
 
         &::before,
@@ -55,10 +119,22 @@ const renderedBio = renderRTF(profileData.bio);
         }
 
         &:after {
-            top: 10px;;
+            top: 10px;
+            z-index: 1;
         }
     }
 
+    .flex-links {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1.5rem;
+        & >a {
+            display: block
+        }
+    }
     .profile-card--img {
         width: 100px;
         height: 100px;
@@ -68,7 +144,7 @@ const renderedBio = renderRTF(profileData.bio);
         border: 1px solid color(from var(--clr-secondary) srgb r g b / 0.5);
         margin: 0 auto;
         display: block;
-        z-index: 1;
+        z-index: 2;
         position: relative;
     }
 
