@@ -101,7 +101,7 @@ const renderedBio = renderRTF(profileData.bio);
         padding: 2rem;
         padding-top: calc( 50px + 1rem);
         margin-top: -50px;
-        border-top: 1px solid color(from var(--clr-secondary) srgb r g b / 0.5);
+        border-top: 1px solid var(--clr-secondary);
         background: var(--clr-white);
         position: relative;
 
@@ -109,18 +109,22 @@ const renderedBio = renderRTF(profileData.bio);
         &::after {
             content: "";
             position: absolute;
-            top: -10px;
+            top: -12.5px;
             left: 50%;
             transform: translateX(-50%);
             width: 50%;
-            height: 1px;
-            background: color(from var(--clr-secondary) srgb r g b / 0.5);
-            z-index: -1;
+            height: 25px;
+            /* background: color(from var(--clr-secondary) srgb r g b / 0.5); */
+            z-index: 1;
+            border-block: 1px solid var(--clr-secondary);
+            opacity: 0.65;
         }
 
         &:after {
-            top: 10px;
-            z-index: 1;
+            top: -25px;
+            width: 30%;
+            height: 50px;
+            opacity: 0.4;
         }
     }
 
@@ -141,7 +145,7 @@ const renderedBio = renderRTF(profileData.bio);
         border-radius: 50%;
         object-fit: cover;
         margin-bottom: 1rem;
-        border: 1px solid color(from var(--clr-secondary) srgb r g b / 0.5);
+        border: 3px solid  var(--clr-secondary);
         margin: 0 auto;
         display: block;
         z-index: 2;
