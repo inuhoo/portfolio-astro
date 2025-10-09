@@ -1,5 +1,5 @@
 ---
-import Header from "../components/header.astro";
+import ProfileCard from "../components/profileCard.astro";
 import Theme from "../layouts/Theme.astro";
 const STRAPI_ROOT = import.meta.env.STRAPI_ROOT;
 
@@ -9,10 +9,17 @@ const globalData = json.data;
 ---
 
 <Theme {...globalData}>
-  <Header {...globalData}/>
-  <h1>Adam Snape Creative Services</h1>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam tempora <a href="">adamsnape.com</a> temporibus est nulla molestiae harum, libero architecto at iste consequatur cupiditate nemo illum itaque ratione distinctio asperiores, rerum repellat in.</p>
-  <blockquote>Thinking about design is hard, but not thinking about it can be disastrous</blockquote>
-  <figcaption>Ralph Caplan</figcaption>
-  <button>click me now</button>
+<div>
+  <ProfileCard {...globalData} />
+  <img src=`${globalData.logo.url}` alt="Adam Snape Logo" class="logo" />
+</div>
 </Theme>
+
+
+<style>
+  .logo {
+    width: 35px;
+    margin: 50px auto 0;
+    display: block;
+  }
+  </style>

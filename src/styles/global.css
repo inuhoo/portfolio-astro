@@ -1,8 +1,9 @@
 :root {
-    --clr-primary: #081B33;
-    --clr-secondary: #E64833;
-    --clr-accent: #04FFA2;
-    --clr-white: #fafafa;
+    --clr-primary: rgb(8 27 51 / 1);
+    --clr-secondary: rgb(230 72 51 / 1);
+    --clr-accent: rgb(4 255 162 / 1);
+    --clr-white: rgb(253 250 247 / 1);
+    --clr-black: rgb(27 27 22 / 1);
 
     --fs-s: clamp(0.7rem, 0.26vi + 0.63rem, 0.84rem);
     --fs-p: clamp(0.88rem, 0.45vi + 0.76rem, 1.13rem);
@@ -84,7 +85,6 @@ h2,
 h3,
 h4,
 h5 {
-    font-weight: true;
     line-height: 1.15;
 }
 
@@ -227,6 +227,11 @@ small,
     font-size: var(--fs-s);
 }
 
+.center {
+    text-align: center;
+}
+
+/* BUTTONS AND INPUTS  */
 button,
 .btn-primary,
 .btn-secondary,
