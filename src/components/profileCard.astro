@@ -38,7 +38,9 @@ const renderedBio = renderRTF(profileData.bio);
             <div class="skill language"> <IconBrandReact stroke={1.5} /> React</div>
             <div class="skill language"> <IconBrandAstro stroke={1.5} /> Astro</div>
             <div class="skill language">Strapi</div>
-            <div class="skill language"> <IconBrandShopee stroke={1.5} />Shopify Liquid</div>
+            <div class="skill language"> Shopify Liquid</div>
+            <div class="skill framework"> Photoshop</div>
+            <div class="skill framework"> Affinity Designer</div>
 
           </div>
 
@@ -60,6 +62,7 @@ const renderedBio = renderRTF(profileData.bio);
         min-height: 100vh;
         display: grid;
         place-items: center;
+        padding: 5rem 0
     }
 
     h1 {
@@ -124,7 +127,7 @@ background: color(from var(--clr-secondary) srgb r g b / 0.5);
             top: -12.5px;
             left: 50%;
             transform: translateX(-50%);
-            width: 50%;
+            width: max(50%, 250px);
             height: 25px;
             /* background: color(from var(--clr-secondary) srgb r g b / 0.5); */
             z-index: 1;
@@ -134,7 +137,7 @@ background: color(from var(--clr-secondary) srgb r g b / 0.5);
 
         &:after {
             top: -25px;
-            width: 30%;
+            width: max(30%, 175px);
             height: 50px;
             opacity: 0.4;
         }
