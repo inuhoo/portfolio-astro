@@ -1,6 +1,6 @@
 ---
 import { renderRTF } from '../utils/strapiParser';
-import { IconCakeRoll, IconBrandShopee, IconBrandAstro, IconBrandReact, IconBrandHtml5, IconBrandCss3, IconBrandJavascript, IconBrandLinkedin, IconBrandBluesky, IconBrandInstagram, IconAt, IconMapPin } from '@tabler/icons-react';
+import { IconCalculator, IconCakeRoll, IconBrandAstro, IconBrandReact, IconBrandHtml5, IconBrandCss3, IconBrandJavascript, IconBrandLinkedin, IconBrandBluesky, IconBrandInstagram, IconAt, IconMapPin } from '@tabler/icons-react';
 
 const STRAPI_ROOT = import.meta.env.STRAPI_ROOT;
 
@@ -50,6 +50,7 @@ const renderedBio = renderRTF(profileData.bio);
              <a href="https://bsky.app/profile/adam.snape.xyz"><IconBrandBluesky stroke={2} /></a>
              <a href="https://www.instagram.com/snapexyz"><IconBrandInstagram stroke={2} /></a>
              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><IconCakeRoll stroke={2} /></a>
+             <a href="https://calc.adamsnape.com" target="_blank"><IconCalculator stroke={2} /></a>
             </div>
                <a href="mailto:adam@snape.xyz" class="btn-primary">Get in touch</a>
            </div>
