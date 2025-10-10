@@ -1,6 +1,6 @@
 ---
 import { renderRTF } from '../utils/strapiParser';
-import { IconBrandLinkedin, IconBrandBluesky, IconBrandInstagram, IconAt, IconMapPin } from '@tabler/icons-react';
+import { IconCakeRoll, IconBrandShopee, IconBrandAstro, IconBrandReact, IconBrandHtml5, IconBrandCss3, IconBrandJavascript, IconBrandLinkedin, IconBrandBluesky, IconBrandInstagram, IconAt, IconMapPin } from '@tabler/icons-react';
 
 const STRAPI_ROOT = import.meta.env.STRAPI_ROOT;
 
@@ -25,17 +25,20 @@ const renderedBio = renderRTF(profileData.bio);
             <IconAt stroke={1.5} />adam@snape.xyz
         </a>
         </div>
-           <div set:html={renderedBio} />
-          <div class="profile-card--skills">
+                  <div class="profile-card--skills center">
             <div class="skill">Brand Strategy</div>
             <div class="skill">Visual Identity Design</div>
             <div class="skill">Web Development</div>
-            <div class="skill language">HTML</div>
-            <div class="skill language">CSS</div>
-            <div class="skill language">JS</div>
-            <div class="skill language">React</div>
-            <div class="skill language">Astro</div>
+            </div>
+           <div set:html={renderedBio} />
+          <div class="profile-card--skills">
+            <div class="skill language"> <IconBrandHtml5 stroke={1.5} /> HTML</div>
+            <div class="skill language"> <IconBrandCss3 stroke={1.5} /> CSS</div>
+            <div class="skill language"> <IconBrandJavascript stroke={1.5} /> JS</div>
+            <div class="skill language"> <IconBrandReact stroke={1.5} /> React</div>
+            <div class="skill language"> <IconBrandAstro stroke={1.5} /> Astro</div>
             <div class="skill language">Strapi</div>
+            <div class="skill language"> <IconBrandShopee stroke={1.5} />Shopify Liquid</div>
 
           </div>
 
@@ -44,6 +47,7 @@ const renderedBio = renderRTF(profileData.bio);
                 <a href="https://www.linkedin.com/in/snapexyz/" target="_blank"><IconBrandLinkedin stroke={2} /></a>
              <a href="https://bsky.app/profile/adam.snape.xyz"><IconBrandBluesky stroke={2} /></a>
              <a href="https://www.instagram.com/snapexyz"><IconBrandInstagram stroke={2} /></a>
+             <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><IconCakeRoll stroke={2} /></a>
             </div>
                <a href="mailto:adam@snape.xyz" class="btn-primary">Get in touch</a>
            </div>
@@ -66,7 +70,6 @@ const renderedBio = renderRTF(profileData.bio);
 
     .data,
         .data--item {
-                margin: 0 0 1.5rem;
         display: flex;
         gap: 1.5rem;
         justify-content: center;
@@ -83,6 +86,7 @@ const renderedBio = renderRTF(profileData.bio);
         flex-wrap: wrap;
         gap: 0.5rem;
         font-size: var(--fs-s);
+        margin: 1.5rem 0
     }
 
     .skill {
@@ -90,9 +94,17 @@ const renderedBio = renderRTF(profileData.bio);
         padding: 0.5rem 1rem;
         border-radius: 2em;
         min-height: 1.2em;
+            display: flex;
+    gap: 0.5ch;
+    align-items: center;
 
         &.language {
             background-color: var(--clr-off-white);
+        }
+        &.framework {
+background: color(from var(--clr-secondary) srgb r g b / 0.5);
+
+
         }
     }
 
