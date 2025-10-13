@@ -5,7 +5,8 @@ const json = await resp.json();
 const announcementData = json.data;
 ---
 
-{ announcementData?.length > 0 && (
+
+{ announcementData && (
   <div class="announcement-bar">
     {announcementData.map((announcement: { line_one: string }) => (
       <div>{announcement.line_one}</div>
