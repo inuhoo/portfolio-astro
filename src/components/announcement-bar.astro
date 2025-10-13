@@ -2,17 +2,19 @@
 const STRAPI_ROOT = import.meta.env.STRAPI_ROOT;
 const resp = await fetch(`${STRAPI_ROOT}/api/announcements`);
 const json = await resp.json();
-const announcementData = json.data;
+const announcementData = json.data || [];
 ---
 
-
-{ announcementData && (
-  <div class="announcement-bar">
-    {announcementData.map((announcement: { line_one: string }) => (
-      <div>{announcement.line_one}</div>
-    ))}
-  </div>
-)}
+{
+  announcementData.length > 0 && (
+    <div class="announcement-bar">
+      {ann}
+      {announcementData.map((announcement: { line_one: string }) => (
+        <div>{announcement.line_one}</div>
+      ))}
+    </div>
+  )
+}
 
 <style>
   .announcement-bar {
