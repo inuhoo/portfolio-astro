@@ -1,0 +1,31 @@
+---
+const STRAPI_ROOT = import.meta.env.STRAPI_ROOT;
+const resp = await fetch(`${STRAPI_ROOT}/api/announcements`);
+const json = await resp.json();
+const announcementData = json.data;
+---
+
+{announcementData.length > 0 && (
+  <div class="announcement-bar">
+    {announcementData.map((announcement: { line_one: string }) => (
+      <div>{announcement.line_one}</div>
+    ))}
+  </div>
+)}
+
+<style>
+  .announcement-bar {
+    background-color: var(--clr-secondary);
+    color: var(--clr-off-white);
+    text-align: center;
+    font-size: var(--fs-s);
+    padding: 0.5rem 1rem;
+    font-weight: 400;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+</style>
