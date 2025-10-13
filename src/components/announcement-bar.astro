@@ -8,7 +8,6 @@ const announcementData = json.data || [];
 {
   announcementData.length > 0 && (
     <div class="announcement-bar">
-      {ann}
       {announcementData.map((announcement: { line_one: string }) => (
         <div>{announcement.line_one}</div>
       ))}
