@@ -1,6 +1,6 @@
 ---
 import { renderRTF } from '../utils/strapiParser';
-import { IconCalculator, IconCakeRoll, IconBrandAstro, IconBrandReact, IconBrandHtml5, IconBrandCss3, IconBrandJavascript, IconBrandLinkedin, IconBrandBluesky, IconBrandInstagram, IconAt, IconMapPin } from '@tabler/icons-react';
+import { IconCalculator, IconCakeRoll,  IconBrandLinkedin, IconBrandBluesky, IconBrandInstagram, IconAt, IconMapPin } from '@tabler/icons-react';
 
 const STRAPI_ROOT = import.meta.env.STRAPI_ROOT;
 
@@ -16,8 +16,8 @@ const renderedBio = renderRTF(profileData.bio);
         <img src=`${profileData.headshot.url}` alt=`${profileData.name} Headshot` class="profile-card--img" />
       )}
        <div class="profile-card--content">
-        <h1 class="h2 center">{profileData.name}</h1>
-        <div class="data text-small">
+        <h1 class="center">{profileData.name}</h1>
+        <div class="data small">
         <a href="https://www.google.com/maps/@53.2542252,-1.9263802,12z" target="_blank" class="data--item">
             <IconMapPin stroke={1.5} /> Buxton UK
         </a>
@@ -31,18 +31,6 @@ const renderedBio = renderRTF(profileData.bio);
             <div class="skill">Web Development</div>
             </div>
            <div set:html={renderedBio} />
-          <div class="profile-card--skills">
-            <div class="skill language"> <IconBrandHtml5 stroke={1.5} /> HTML</div>
-            <div class="skill language"> <IconBrandCss3 stroke={1.5} /> CSS</div>
-            <div class="skill language"> <IconBrandJavascript stroke={1.5} /> JS</div>
-            <div class="skill language"> <IconBrandReact stroke={1.5} /> React</div>
-            <div class="skill language"> <IconBrandAstro stroke={1.5} /> Astro</div>
-            <div class="skill language">Strapi</div>
-            <div class="skill language"> Shopify Liquid</div>
-            <div class="skill framework"> Photoshop</div>
-            <div class="skill framework"> Affinity Designer</div>
-
-          </div>
 
            <div class="flex-links">
                <div class="socials">
@@ -52,7 +40,7 @@ const renderedBio = renderRTF(profileData.bio);
              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><IconCakeRoll stroke={2} /></a>
              <a href="https://calc.adamsnape.com" target="_blank"><IconCalculator stroke={2} /></a>
             </div>
-               <a href="mailto:adam@snape.xyz" class="btn-primary">Get in touch</a>
+               <a href="mailto:adam@snape.xyz" class="btn btn-primary">Get in touch</a>
            </div>
         </div>
   </div>
@@ -67,8 +55,7 @@ const renderedBio = renderRTF(profileData.bio);
     }
 
     h1 {
-        font-size: var(--fs-h4);
-        margin-bottom: 1rem;;
+        margin-bottom: 1rem;
     }
 
 
@@ -94,7 +81,6 @@ const renderedBio = renderRTF(profileData.bio);
     }
 
     .skill {
-        background-color: var(--clr-accent);
         padding: 0.5rem 1rem;
         border-radius: 2em;
         min-height: 1.2em;
@@ -102,14 +88,9 @@ const renderedBio = renderRTF(profileData.bio);
     gap: 0.5ch;
     align-items: center;
 
-        &.language {
+
             background-color: var(--clr-off-white);
-        }
-        &.framework {
-background: color(from var(--clr-secondary) srgb r g b / 0.5);
 
-
-        }
     }
 
     .profile-card--content{
