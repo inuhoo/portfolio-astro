@@ -15,6 +15,10 @@
 	--fs-h2: clamp(1.26rem, 0.91vi + 1.05rem, 1.78rem);
 	--fs-h1: clamp(1.51rem, 1.51vi + 1.16rem, 2.37rem);
 	--fs-hero: clamp(1.81rem, 2.37vi + 1.26rem, 3.16rem);
+
+	--ff-body: "IBM Plex Mono", "JetBrains Mono", "Hack", monospace, system-ui;
+	--ff-heading: "Spectral", serif, system-ui;
+	--ff-accent: "Fractul Variable", "Montserrat", sans-serif, system-ui;
 }
 
 [hidden] {
@@ -29,7 +33,7 @@
 
 html {
 	font-size: 16px;
-	font-family: "IBM Plex Mono", system-ui;
+	font-family: "var(--ff-body)", system-ui;
 	font-optical-sizing: auto;
 	font-weight: 400;
 	font-style: normal;
@@ -76,14 +80,14 @@ hr {
 
 p,
 .body {
-	font-family: "IBM Plex Mono", system-ui;
+	font-family: var(--ff-body);
 	font-optical-sizing: auto;
 	font-weight: 400;
 	font-style: normal;
 }
 
 .heading {
-	font-family: "Spectral", system-ui;
+	font-family: var(--ff-heading);
 	font-optical-sizing: auto;
 	font-weight: 400;
 	font-style: normal;
@@ -120,7 +124,7 @@ h5 {
 
 h1,
 .h1 {
-	font-family: "Spectral", system-ui;
+	font-family: var(--ff-heading);
 	font-weight: 700;
 	margin-top: 0;
 	color: var(--clr-primary);
@@ -129,26 +133,28 @@ h1,
 	overflow: visible;
 
 	&::before {
-		content: "Adam Snape";
+		content: attr(data-name);
 		display: block;
-		color: var(--clr-accent);
+		/* color: var(--clr-accent); */
+		background: linear-gradient(90deg, var(--clr-white) 10%, var(--clr-accent) 40%, var(--clr-accent) 60%, var(--clr-white) 90%);
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
 		margin-bottom: 0.5rem;
 		opacity: 0.075;
-		font-size: 15vw;
+		font-size: 20vw;
 		position: absolute;
 		left: 50%;
 		top: 50%;
 		transform: translate(-50%, -50%);
 		width: max-content;
-		font-family: "Fractul Variable", system-ui;
+		font-family: var(--ff-accent);
 		font-weight: 400;
-
 	}
 }
 
 h2,
 .h2 {
-	font-family: "Spectral", system-ui;
+	font-family: var(--ff-heading);
 	font-weight: 700;
 	font-optical-sizing: auto;
 	font-style: normal;
@@ -157,7 +163,7 @@ h2,
 
 h3,
 .h3 {
-	font-family: "Spectral", system-ui;
+	font-family: var(--ff-heading);
 	font-optical-sizing: auto;
 	font-weight: 300;
 	font-style: normal;
@@ -166,7 +172,7 @@ h3,
 
 h4,
 .h4 {
-	font-family: "Spectral", system-ui;
+	font-family: var(--ff-heading);
 	font-optical-sizing: auto;
 	font-weight: 300;
 	font-style: normal;
@@ -176,7 +182,7 @@ h4,
 
 .subtitle {
 	font-weight: 400;
-	font-family: "IBM Plex Mono", system-ui;
+	font-family: var(--ff-body);
 	text-transform: uppercase;
 	letter-spacing: 0.25ch;
 	color: var(--clr-secondary);
@@ -193,7 +199,7 @@ p,
 		position: relative;
 		transition: color cubic-bezier(0.54, 0.78, 0.34, 1.23) 0.15s;
 		font-style: italic;
-		font-family: "Fractul Variable", system-ui;
+		font-family: var(--ff-accent);
 		font-weight: 400;
 
 		&:visited {
@@ -258,7 +264,7 @@ a:not(.btn):not(.btn-secondary) {
 }
 
 blockquote {
-	font-family: "Spectral", system-ui;
+	font-family: var(--ff-heading);
 	font-weight: 400;
 	font-size: var(--fs-h3);
 	margin: 1em 1em 0;
@@ -308,7 +314,7 @@ button,
 .btn {
 	padding: 0.65em 1em;
 	font-size: var(--fs-p);
-	font-family: "Spectral", system-ui;
+	font-family: var(--ff-heading);
 	line-height: 1;
 	position: relative;
 	text-decoration: none;

@@ -17,7 +17,7 @@ const headshotUrl = profileData.headshot?.url.startsWith("http") ? profileData.h
   {profileData.headshot.url && <Image src={headshotUrl} alt={`${profileData.name} Headshot`} width={profileData.headshot.width} height={profileData.headshot.height} format="webp" widths={[100, 200, 400]} sizes="100px" class="profile-card--img" />}
 
   <div class="profile-card--content">
-    <h1 class="center">{profileData.name}</h1>
+    <h1 class="center" data-name={profileData.name}>{profileData.name}</h1>
     <div class="data small">
       <a href="https://www.google.com/maps/@53.2542252,-1.9263802,12z" target="_blank" class="data--item">
         <IconMapPin stroke={1.5} /> Buxton UK
