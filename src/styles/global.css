@@ -1,3 +1,70 @@
+/* ibm-plex-mono-regular - latin */
+@font-face {
+	font-display: swap;
+	/* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: 'IBM Plex Mono';
+	font-style: normal;
+	font-weight: 400;
+	src: url('../fonts/ibm-plex-mono-v20-latin-regular.woff2') format('woff2');
+	/* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* ibm-plex-mono-italic - latin */
+@font-face {
+	font-display: swap;
+	/* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: 'IBM Plex Mono';
+	font-style: italic;
+	font-weight: 400;
+	src: url('../fonts/ibm-plex-mono-v20-latin-italic.woff2') format('woff2');
+	/* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* ibm-plex-mono-700 - latin */
+@font-face {
+	font-display: swap;
+	/* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: 'IBM Plex Mono';
+	font-style: normal;
+	font-weight: 700;
+	src: url('../fonts/ibm-plex-mono-v20-latin-700.woff2') format('woff2');
+	/* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* ibm-plex-mono-700italic - latin */
+@font-face {
+	font-display: swap;
+	/* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: 'IBM Plex Mono';
+	font-style: italic;
+	font-weight: 700;
+	src: url('../fonts/ibm-plex-mono-v20-latin-700italic.woff2') format('woff2');
+	/* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* spectral-700 - latin */
+@font-face {
+	font-display: swap;
+	/* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: 'Spectral';
+	font-style: normal;
+	font-weight: 700;
+	src: url('../fonts/spectral-v15-latin-700.woff2') format('woff2');
+	/* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* space-grotesk-regular - latin */
+@font-face {
+	font-display: swap;
+	/* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: 'Space Grotesk';
+	font-style: normal;
+	font-weight: 400;
+	src: url('../fonts/space-grotesk-v22-latin-regular.woff2') format('woff2');
+	/* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
 :root {
 	isolation: isolate;
 
@@ -16,9 +83,9 @@
 	--fs-h1: clamp(1.51rem, 1.51vi + 1.16rem, 2.37rem);
 	--fs-hero: clamp(1.81rem, 2.37vi + 1.26rem, 3.16rem);
 
-	--ff-body: "IBM Plex Mono", "JetBrains Mono", "Hack", monospace, system-ui;
-	--ff-heading: "Spectral", serif, system-ui;
-	--ff-accent: "Fractul Variable", "Montserrat", sans-serif, system-ui;
+	--ff-body: "IBM Plex Mono", "JetBrains Mono", "Courier New", Courier, monospace;
+	--ff-heading: "Spectral", Georgia, Times, "Times New Roman", serif, system-ui;
+	--ff-accent: "Space Grotesk", "Montserrat", sans-serif, system-ui;
 }
 
 [hidden] {
