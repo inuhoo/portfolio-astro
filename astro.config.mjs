@@ -7,7 +7,7 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
 	integrations: [react()],
 	  image: {
-    domains: ['localhost:1337', 'majestic-garden-e773358a80.strapiapp.com'], // e.g. 'cms.adamsnape.xyz' or 'localhost:1337'
+    domains: ['localhost:1337', 'majestic-garden-e773358a80.strapiapp.com'],
   },
 	vite: {
 		server: {
