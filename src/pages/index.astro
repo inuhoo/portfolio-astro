@@ -1,7 +1,8 @@
 ---
-import ProfileCard from "../components/profileCard.astro";
 import Announcements from "../components/announcement-bar.astro";
+import ProfileCard from "../components/profileCard.astro";
 import Theme from "../layouts/Theme.astro";
+
 const STRAPI_ROOT = import.meta.env.STRAPI_ROOT;
 
 const resp = await fetch(`${STRAPI_ROOT}/api/global-setting?populate=*`);
@@ -10,14 +11,13 @@ const globalData = json.data;
 ---
 
 <Theme {...globalData}>
-<Announcements />
-<div>
-  <ProfileCard {...globalData} />
-  <img src=`${globalData.logo.url}` alt="Adam Snape Logo" class="logo" />
-  <p class="small center">&copy; Adam Snape 2025</p>
-</div>
+  <Announcements />
+  <div>
+    <ProfileCard {...globalData} />
+    <img src="/adamsnapelogo.png" alt="Adam Snape Logo" class="logo" />
+    <p class="small center">&copy; Adam Snape 2025</p>
+  </div>
 </Theme>
-
 
 <style>
   .logo {
@@ -25,4 +25,4 @@ const globalData = json.data;
     margin: 50px auto 0;
     display: block;
   }
-  </style>
+</style>

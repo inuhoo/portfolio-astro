@@ -1,6 +1,6 @@
 ---
-import { renderRTF } from '../utils/strapiParser';
-import { IconCalculator, IconCakeRoll,  IconBrandLinkedin, IconBrandBluesky, IconBrandInstagram, IconAt, IconMapPin } from '@tabler/icons-react';
+import { IconShoppingCart, IconPencil, IconCode, IconAt, IconBrandBehance, IconBrandBluesky, IconBrandDribbble, IconBrandInstagram, IconBrandLinkedin, IconCakeRoll, IconCalculator, IconMapPin } from "@tabler/icons-react";
+import { renderRTF } from "../utils/strapiParser";
 
 const STRAPI_ROOT = import.meta.env.STRAPI_ROOT;
 
@@ -10,142 +10,125 @@ const profileData = json.data;
 const renderedBio = renderRTF(profileData.bio);
 ---
 
+<div class="profile-card">
+  {profileData.headshot.url && <img src={profileData.headshot.url} alt={`${profileData.name} Headshot`} class="profile-card--img" />}
+  <div class="profile-card--content">
+    <h1 class="center">{profileData.name}</h1>
+    <div class="data small">
+      <a href="https://www.google.com/maps/@53.2542252,-1.9263802,12z" target="_blank" class="data--item">
+        <IconMapPin stroke={1.5} /> Buxton UK
+      </a>
+      <a href="mailto:adam@snape.xyz" class="data--item">
+        <IconAt stroke={1.5} />adam@snape.xyz
+      </a>
+    </div>
+    <div class="profile-card--skills center">
+      <div class="skill"><IconCode stroke={2} />Web Developer</div>
+      <div class="skill"><IconPencil stroke={2} />Designer</div>
+      <div class="skill"><IconShoppingCart stroke={2} />Shopify Expert</div>
+    </div>
+    <div set:html={renderedBio} />
 
-  <div class="profile-card">
-      {profileData.headshot.url && (
-        <img src=`${profileData.headshot.url}` alt=`${profileData.name} Headshot` class="profile-card--img" />
-      )}
-       <div class="profile-card--content">
-        <h1 class="center">{profileData.name}</h1>
-        <div class="data small">
-        <a href="https://www.google.com/maps/@53.2542252,-1.9263802,12z" target="_blank" class="data--item">
-            <IconMapPin stroke={1.5} /> Buxton UK
-        </a>
-        <a href="mailto:adam@snape.xyz" class="data--item">
-            <IconAt stroke={1.5} />adam@snape.xyz
-        </a>
-        </div>
-                  <div class="profile-card--skills center">
-            <div class="skill">Brand Strategy</div>
-            <div class="skill">Visual Identity Design</div>
-            <div class="skill">Web Development</div>
-            </div>
-           <div set:html={renderedBio} />
-
-           <div class="flex-links">
-               <div class="socials">
-                <a href="https://www.linkedin.com/in/snapexyz/" target="_blank"><IconBrandLinkedin stroke={2} /></a>
-             <a href="https://bsky.app/profile/adam.snape.xyz"><IconBrandBluesky stroke={2} /></a>
-             <a href="https://www.instagram.com/snapexyz"><IconBrandInstagram stroke={2} /></a>
-             <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><IconCakeRoll stroke={2} /></a>
-             <a href="https://calc.adamsnape.com" target="_blank"><IconCalculator stroke={2} /></a>
-            </div>
-               <a href="mailto:adam@snape.xyz" class="btn btn-primary">Get in touch</a>
-           </div>
-        </div>
+    <div class="flex-links">
+      <div class="socials">
+        <a href="https://www.behance.net/snapexyz" target="_blank"> <IconBrandBehance stroke={2} /></a>
+        <a href="https://dribbble.com/snapexyz" target="_blank"> <IconBrandDribbble stroke={2} /></a>
+        <a href="https://www.linkedin.com/in/snapexyz/" target="_blank"> <IconBrandLinkedin stroke={2} /></a>
+        <a href="https://bsky.app/profile/adam.snape.xyz"> <IconBrandBluesky stroke={2} /></a>
+        <a href="https://www.instagram.com/snapexyz"> <IconBrandInstagram stroke={2} /></a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"> <IconCakeRoll stroke={2} /></a>
+        <a href="https://calc.adamsnape.com" target="_blank"> <IconCalculator stroke={2} /></a>
+      </div>
+      <a href="mailto:adam@snape.xyz" class="btn btn-primary">Get in touch &raquo;</a>
+    </div>
   </div>
-
+</div>
 
 <style>
-    body {
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
-        padding: 5rem 0
-    }
+  body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 5rem 0;
+  }
 
-    h1 {
-        margin-bottom: 1rem;
-    }
+  h1,
+  h3 {
+    margin: 0;
+  }
 
+  .data,
+  .data--item {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
 
-    .data,
-        .data--item {
-        display: flex;
-        gap: 1.5rem;
-        justify-content: center;
-    }
-
-    .data--item {
+  .data--item {
     gap: 0.5ch;
     align-items: center;
-    }
+  }
 
-    .socials,
-    .profile-card--skills {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        font-size: var(--fs-s);
-        margin: 1.5rem 0
-    }
+  .socials,
+  .profile-card--skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    font-size: var(--fs-s);
+    margin: 1.5rem 0;
+    gap: 0.5rem;
+  }
 
-    .skill {
-        padding: 0.5rem 1rem;
-        border-radius: 2em;
-        min-height: 1.2em;
-            display: flex;
-    gap: 0.5ch;
+  .profile-card--skills {
+    gap: 0;
+    border-right: 2px solid var(--clr-secondary);
+    border-bottom: 2px solid var(--clr-secondary);
+  }
+
+  .skill {
+    border-top: 2px solid var(--clr-secondary);
+    border-left: 2px solid var(--clr-secondary);
+    padding: 0.5rem 1rem;
+    min-height: 1.2em;
+    display: flex;
     align-items: center;
+    flex: 1 1 auto;
+    justify-content: center;
+    gap: 0.5rem;
 
+    background-color: var(--clr-off-white);
+  }
 
-            background-color: var(--clr-off-white);
+  .profile-card--content {
+    width: min(90vw, 600px);
+    padding: 2rem;
+    padding-top: calc(50px + 1rem);
+    margin-top: -50px;
+    background: var(--clr-white);
+    position: relative;
+  }
 
+  .flex-links {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    & > a {
+      display: block;
     }
-
-    .profile-card--content{
-        width: min(90vw, 600px);
-        padding: 2rem;
-        padding-top: calc( 50px + 1rem);
-        margin-top: -50px;
-        border-top: 1px solid var(--clr-secondary);
-        background: var(--clr-white);
-        position: relative;
-
-        &::before,
-        &::after {
-            content: "";
-            position: absolute;
-            top: -12.5px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: max(50%, 250px);
-            height: 25px;
-            /* background: color(from var(--clr-secondary) srgb r g b / 0.5); */
-            z-index: 1;
-            border-block: 1px solid var(--clr-secondary);
-            opacity: 0.65;
-        }
-
-        &:after {
-            top: -25px;
-            width: max(30%, 175px);
-            height: 50px;
-            opacity: 0.4;
-        }
-    }
-
-    .flex-links {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 1rem;
-        & >a {
-            display: block
-        }
-    }
-    .profile-card--img {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-bottom: 1rem;
-        border: 3px solid  var(--clr-secondary);
-        margin: 0 auto;
-        display: block;
-        z-index: 2;
-        position: relative;
-    }
-
+  }
+  .profile-card--img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid var(--clr-secondary);
+    margin: 0 auto;
+    display: block;
+    z-index: 2;
+    position: relative;
+  }
 </style>
