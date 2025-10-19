@@ -1,9 +1,18 @@
 ---
-import PostHog from '../components/posthog.astro';
+import PostHog from "../components/posthog.astro";
+import HeadContent from "../layouts/HeadContent.astro";
+
+const STRAPI_ROOT = import.meta.env.STRAPI_ROOT;
+
+const resp = await fetch(`${STRAPI_ROOT}/api/global-setting?populate=*`);
+const json = await resp.json();
+const globalData = json.data;
 ---
+
 <html>
   <head>
     <PostHog />
+    <HeadContent {...globalData} />
   </head>
   <body>
     <slot />

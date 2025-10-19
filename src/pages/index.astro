@@ -1,8 +1,7 @@
 ---
-import PostHogLayout from '../layouts/PostHogLayout.astro';
+import PostHogLayout from "../layouts/PostHogLayout.astro";
 import Announcements from "../components/announcement-bar.astro";
 import ProfileCard from "../components/profileCard.astro";
-import Theme from "../layouts/Theme.astro";
 import { Image } from "astro:assets";
 import logo from "../assets/adamsnapelogo.png";
 const STRAPI_ROOT = import.meta.env.STRAPI_ROOT;
@@ -13,14 +12,12 @@ const globalData = json.data;
 ---
 
 <PostHogLayout>
-  <Theme {...globalData}>
-    <Announcements />
-    <div>
-      <ProfileCard {...globalData} />
-      <Image src={logo} alt="Adam Snape Logo" class="logo" width="35" height="35" format="webp" widths={[35, 70, 140]} sizes="35px" />
-      <p class="small center">&copy; Adam Snape 2025</p>
-    </div>
-  </Theme>
+  <Announcements />
+  <div>
+    <ProfileCard {...globalData} />
+    <Image src={logo} alt="Adam Snape Logo" class="logo" width="35" height="35" format="webp" widths={[35, 70, 140]} sizes="35px" />
+    <p class="small center">&copy; Adam Snape 2025</p>
+  </div>
 </PostHogLayout>
 
 <style>
