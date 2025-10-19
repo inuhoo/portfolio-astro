@@ -15,7 +15,7 @@ export default defineConfig({
 				port: '1337',
 			}, {
 				protocol: 'https',
-				hostname: 'majestic-garden-e773358a80.strapiapp.com',
+				hostname: 'majestic-garden-e773358a80.media.strapiapp.com',
 				pathname: '/**'
 			}
 		]
