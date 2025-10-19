@@ -1,7 +1,6 @@
 ---
 import PostHog from "../components/posthog.astro";
-import HeadContent from "../layouts/HeadContent.astro";
-
+import "../styles/global.css";
 const STRAPI_ROOT = import.meta.env.STRAPI_ROOT;
 
 const resp = await fetch(`${STRAPI_ROOT}/api/global-setting?populate=*`);
@@ -11,8 +10,16 @@ const globalData = json.data;
 
 <html>
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={globalData.default_description} />
+    <title>{globalData.site_name}</title>
+    <link rel="icon" href=`${globalData.Favicon.url}` />
+    <link rel="preconnect" href="https://use.typekit.net" />
+    <link rel="stylesheet" href="https://use.typekit.net/deh7bqm.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://use.typekit.net/deh7bqm.css" /></noscript>
+
     <PostHog />
-    <HeadContent {...globalData} />
   </head>
   <body>
     <slot />
