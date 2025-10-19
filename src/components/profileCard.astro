@@ -10,10 +10,12 @@ const json = await resp.json();
 const profileData = json.data;
 
 const renderedBio = renderRTF(profileData.bio);
+const headshotUrl = profileData.headshot?.url.startsWith("http") ? profileData.headshot.url : `${STRAPI_ROOT}${profileData.headshot.url}`;
 ---
 
 <div class="profile-card">
-  {profileData.headshot.url && <Image src={profileData.headshot.url} alt={`${profileData.name} Headshot`} width={profileData.headshot.width} height={profileData.headshot.height} class="profile-card--img" format="webp" widths={[100, 200, 400]} sizes="100px" />}
+  {profileData.headshot.url && <Image src={headshotUrl} alt={`${profileData.name} Headshot`} width={profileData.headshot.width} height={profileData.headshot.height} format="webp" widths={[100, 200, 400]} sizes="100px" class="profile-card--img" />}
+
   <div class="profile-card--content">
     <h1 class="center">{profileData.name}</h1>
     <div class="data small">
