@@ -186,13 +186,17 @@ p,
 	letter-spacing: 0.05ch;
 	line-height: 1.45;
 
-	& a {
-		color: var(--clr-secondary);
+	& a:not(.btn):not(.btn-secondary) {
+		color: var(--clr-txt-accent);
 		position: relative;
 		transition: color cubic-bezier(0.54, 0.78, 0.34, 1.23) 0.15s;
 		font-style: italic;
 		font-family: "Fractul Variable", system-ui;
 		font-weight: 400;
+
+		&:visited {
+			color: var(--clr-accent)
+		}
 
 		&::before {
 			content: "";
@@ -213,14 +217,10 @@ p,
 				width: calc(100% + 0.5ch);
 			}
 		}
-
-		&:visited {
-			color: color-mix(in oklab, var(--clr-secondary) 90%, var(--clr-primary));
-		}
 	}
 }
 
-a:not(.btn):not(.btn-primary):not(.btn-secondary) {
+a:not(.btn):not(.btn-secondary) {
 	color: inherit;
 	transition: all ease 0.15s;
 	text-decoration-color: var(--clr-secondary);
