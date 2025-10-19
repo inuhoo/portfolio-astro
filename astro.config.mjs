@@ -7,8 +7,18 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
 	integrations: [react()],
 	  image: {
-    domains: ['localhost:1337', 'majestic-garden-e773358a80.strapiapp.com'],
-  },
+    	domains: ['localhost:1337', 'majestic-garden-e773358a80.strapiapp.com'],
+		remotePatterns: [
+			{
+				protocol: 'http',
+				hostname: 'localhost',
+				port: '1337',
+			}, {
+				protocol: 'https',
+				hostname: 'majestic-garden-e773358a80.strapiapp.com',
+			}
+		]
+  		},
 	vite: {
 		server: {
 			// This section only runs in development mode by default
