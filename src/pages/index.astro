@@ -1,4 +1,5 @@
 ---
+import PostHogLayout from '../layouts/PostHogLayout.astro';
 import Announcements from "../components/announcement-bar.astro";
 import ProfileCard from "../components/profileCard.astro";
 import Theme from "../layouts/Theme.astro";
@@ -11,14 +12,16 @@ const json = await resp.json();
 const globalData = json.data;
 ---
 
-<Theme {...globalData}>
-  <Announcements />
-  <div>
-    <ProfileCard {...globalData} />
-    <Image src={logo} alt="Adam Snape Logo" class="logo" width="35" height="35" format="webp" widths={[35, 70, 140]} sizes="35px" />
-    <p class="small center">&copy; Adam Snape 2025</p>
-  </div>
-</Theme>
+<PostHogLayout>
+  <Theme {...globalData}>
+    <Announcements />
+    <div>
+      <ProfileCard {...globalData} />
+      <Image src={logo} alt="Adam Snape Logo" class="logo" width="35" height="35" format="webp" widths={[35, 70, 140]} sizes="35px" />
+      <p class="small center">&copy; Adam Snape 2025</p>
+    </div>
+  </Theme>
+</PostHogLayout>
 
 <style>
   .logo {
