@@ -20,6 +20,11 @@ function renderChildNode(child) {
 
 		return text;
 	}
+	if (child.type === "link") {
+		const href = child.url || "#";
+		const inner = (child.children || []).map(renderChildNode).join("");
+		return `<a href="${href}" target="_blank" rel="noopener noreferrer">${inner}</a>`;
+	}
 	// Add logic for other child types like 'link'
 	return "";
 }
