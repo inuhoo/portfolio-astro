@@ -14,7 +14,7 @@ const headshotUrl = profileData.headshot?.url.startsWith("http") ? profileData.h
 ---
 
 <div class="profile-card">
-  {profileData.headshot.url && <Image src={headshotUrl} alt={`${profileData.name} Headshot`} width={profileData.headshot.width} height={profileData.headshot.height} format="webp" widths={[100, 200, 400]} sizes="100px" class="profile-card--img" />}
+  {profileData.headshot.url && <Image src={headshotUrl} alt={`${profileData.name} Headshot`} width={profileData.headshot.width} height={profileData.headshot.height} format="avif" widths={[100, 200, 400]} sizes="100px" class="profile-card--img" />}
 
   <div class="profile-card--content">
     <h1 class="center" data-name={profileData.name}>{profileData.name}</h1>
