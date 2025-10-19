@@ -16,7 +16,7 @@ export default defineConfig({
 			}, {
 				protocol: 'https',
 				hostname: 'majestic-garden-e773358a80.strapiapp.com',
-				pathname: '/uploads/**'
+				pathname: '/**'
 			}
 		]
   		},
