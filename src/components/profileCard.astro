@@ -11,7 +11,7 @@ const renderedBio = renderRTF(profileData.bio);
 ---
 
 <div class="profile-card">
-  {profileData.headshot.url && <img src={profileData.headshot.url} alt={`${profileData.name} Headshot`} class="profile-card--img" />}
+  {profileData.headshot.url && <img src={profileData.headshot.url} alt={`${profileData.name} Headshot`} width={profileData.headshot.width} height={profileData.headshot.height} class="profile-card--img" />}
   <div class="profile-card--content">
     <h1 class="center">{profileData.name}</h1>
     <div class="data small">
