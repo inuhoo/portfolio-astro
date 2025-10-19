@@ -46,6 +46,10 @@ svg {
 	max-width: 100%;
 }
 
+svg {
+	stroke: var(--clr-accent)
+}
+
 input,
 button,
 textarea,
@@ -224,6 +228,8 @@ a:not(.btn):not(.btn-secondary) {
 	color: inherit;
 	transition: all ease 0.15s;
 	text-decoration-color: var(--clr-secondary);
+	text-decoration-thickness: 2px;
+	text-underline-offset: 3px;
 	position: relative;
 	z-index: 1;
 
