@@ -1,17 +1,19 @@
 ---
 import { IconShoppingCart, IconPencil, IconCode, IconAt, IconBrandBehance, IconBrandBluesky, IconBrandDribbble, IconBrandInstagram, IconBrandLinkedin, IconCakeRoll, IconCalculator, IconMapPin } from "@tabler/icons-react";
 import { renderRTF } from "../utils/strapiParser";
+import { Image } from "astro:assets";
 
 const STRAPI_ROOT = import.meta.env.STRAPI_ROOT;
 
 const resp = await fetch(`${STRAPI_ROOT}/api/profile-card?populate=*`);
 const json = await resp.json();
 const profileData = json.data;
+
 const renderedBio = renderRTF(profileData.bio);
 ---
 
 <div class="profile-card">
-  {profileData.headshot.url && <img src={profileData.headshot.url} alt={`${profileData.name} Headshot`} width={profileData.headshot.width} height={profileData.headshot.height} class="profile-card--img" />}
+  {profileData.headshot.url && <Image src={profileData.headshot.url} alt={`${profileData.name} Headshot`} width={profileData.headshot.width} height={profileData.headshot.height} class="profile-card--img" format="webp" widths={[100, 200, 400]} sizes="100px" />}
   <div class="profile-card--content">
     <h1 class="center">{profileData.name}</h1>
     <div class="data small">

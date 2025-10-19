@@ -6,6 +6,9 @@ import { defineConfig } from "astro/config";
 // https://astro.build/config
 export default defineConfig({
 	integrations: [react()],
+	  image: {
+    domains: ['localhost:1337', 'majestic-garden-e773358a80.strapiapp.com'], // e.g. 'cms.adamsnape.xyz' or 'localhost:1337'
+  },
 	vite: {
 		server: {
 			// This section only runs in development mode by default
