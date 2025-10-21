@@ -19,6 +19,7 @@
 	},
 	"devDependencies": {
 		"astro-beasties": "^0.0.1",
+		"fontaine": "^0.6.0",
 		"postcss": "^8.5.6",
 		"postcss-preset-env": "^10.4.0"
 	}

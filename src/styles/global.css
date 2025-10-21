@@ -1,6 +1,7 @@
 /** biome-ignore-all lint/style/noDescendingSpecificity: confused by nesting */
 
 @font-face {
+	font-display: swap;
 	font-family: 'IBM Plex Mono';
 	font-style: normal;
 	font-weight: 400;
@@ -8,6 +9,7 @@
 }
 
 @font-face {
+	font-display: swap;
 	font-family: 'IBM Plex Mono';
 	font-style: italic;
 	font-weight: 400;
@@ -15,6 +17,7 @@
 }
 
 @font-face {
+	font-display: swap;
 	font-family: 'IBM Plex Mono';
 	font-style: normal;
 	font-weight: 700;
@@ -22,6 +25,7 @@
 }
 
 @font-face {
+	font-display: swap;
 	font-family: 'IBM Plex Mono';
 	font-style: italic;
 	font-weight: 700;
@@ -29,24 +33,11 @@
 }
 
 @font-face {
+	font-display: swap;
 	font-family: 'Spectral';
 	font-style: normal;
 	font-weight: 700;
 	src: url('../fonts/spectral-v15-latin-700.woff2') format('woff2');
-}
-
-@font-face {
-	font-family: 'Body Fallback';
-	size-adjust: 134.2%;
-	ascent-override: 74%;
-	src: local("Arial");
-}
-
-@font-face {
-	font-family: 'Heading Fallback';
-	size-adjust: 110%;
-	ascent-override: 115%;
-	src: local("Times New Roman");
 }
 
 
@@ -74,8 +65,8 @@
 	--fs-h1: clamp(1.51rem, 1.51vi + 1.16rem, 2.37rem);
 	--fs-hero: clamp(1.81rem, 2.37vi + 1.26rem, 3.16rem);
 
-	--ff-body: "IBM Plex Mono", 'Body Fallback', "Courier New", Courier, monospace;
-	--ff-heading: "Spectral", "Heading Fallbak", Georgia, Times, "Times New Roman", serif, system-ui;
+	--ff-body: "IBM Plex Mono", monospace;
+	--ff-heading: "Spectral", serif;
 }
 
 [hidden] {

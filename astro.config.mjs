@@ -1,14 +1,21 @@
 // @ts-check
 
 import react from "@astrojs/react";
+import { FontaineTransform } from 'fontaine'
+import beasties from 'astro-beasties';
 import { defineConfig } from "astro/config";
 
-import beasties from 'astro-beasties';
+const options = {
+  // You can specify fallbacks as an array (applies to all fonts)
+  fallbacks: {
+    'IMB Plex Mono': 'Courier New',
+    "Spectral": 'Georgia'
+  },
+}
 
-// https://astro.build/config
 export default defineConfig({
     integrations: [react(), beasties()],
-      image: {
+        image: {
         domains: ['localhost:1337', 'majestic-garden-e773358a80.strapiapp.com'],
         remotePatterns: [
             {
@@ -22,8 +29,8 @@ export default defineConfig({
             }
         ]
         },
-    vite: {
-        server: {
+        vite: {
+            server: {
             // This section only runs in development mode by default
             proxy: {
                 // When Astro's dev server receives a request for '/uploads/'...
@@ -47,5 +54,5 @@ export default defineConfig({
                 },
             },
         },
-    },
+        plugins: [FontaineTransform.vite(options)],},
 });
