@@ -26,7 +26,7 @@ const renderedBio = renderRTF(profileData.bio);
 const headshotUrl = profileData.headshot?.url.startsWith("http") ? profileData.headshot.url : `${STRAPI_ROOT}${profileData.headshot.url}`;
 ---
 
-<div class="profile-card">
+<div class="profile-card" role="main">
   {profileData.headshot.url && <Image src={headshotUrl} alt={`${profileData.name} Headshot`} width={profileData.headshot.width} height={profileData.headshot.height} format="avif" widths={[100, 200, 400]} sizes="100px" class="profile-card--img" />}
 
   <div class="profile-card--content">
