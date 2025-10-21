@@ -221,22 +221,23 @@ h1,
 	color: var(--ld-primary);
 	font-size: var(--fs-h1);
 	position: relative;
-	overflow: visible;
+	overflow-x: clip;
 
 	&::before {
 		content: attr(data-name);
 		display: block;
-		background: text linear-gradient(90deg, var(--ld-white) 10%, light-dark(var(--clr-accent), var(--clr-black)) 40%, light-dark(var(--clr-accent), var(--clr-black)) 60%, var(--ld-white) 90%);
+		background: text light-dark(var(--clr-accent), var(--clr-black));
+		scale: 2;
 		-webkit-text-fill-color: transparent;
-		margin-bottom: 0.5rem;
-		opacity: 0.075;
-		font-size: 20vw;
+		margin-bottom: 0.025rem;
+		opacity: 0.05;
 		position: absolute;
 		left: 50%;
 		top: 50%;
-		transform: translate(-50%, -50%);
+		transform: translate(-25%, -27.5%);
 		width: max-content;
-		font-family: var(--ff-accent);
+		font-size: var(--fs-h1);
+		font-family: var(--ff-heading);
 		font-weight: 400;
 		z-index: -1
 	}
@@ -247,7 +248,7 @@ h1,
 	& h1,
 	& .h1 {
 		&::before {
-			opacity: 0.25;
+			opacity: 0.15;
 		}
 	}
 }
