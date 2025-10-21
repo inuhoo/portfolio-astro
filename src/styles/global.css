@@ -1,4 +1,5 @@
 /* ibm-plex-mono-regular - latin */
+/** biome-ignore-all lint/style/noDescendingSpecificity: confused by nesting */
 @font-face {
 	font-display: swap;
 	/* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
@@ -75,6 +76,12 @@
 	--clr-white: rgb(235 245 240 / 1);
 	--clr-black: rgb(30 35 50 / 1);
 
+	--ld-white: light-dark(var(--clr-white), var(--clr-primary));
+	--ld-primary: light-dark(var(--clr-primary), var(--clr-white));
+	--ld-secondary: light-dark(var(--clr-secondary), var(--clr-txt-accent));
+	--ld-accent: light-dark(var(--clr-accent), var(--clr-white));
+
+
 	--fs-xs: clamp(0.61rem, -0.08vi + 0.63rem, 0.56rem);
 	--fs-s: clamp(0.73rem, 0.04vi + 0.72rem, 0.75rem);
 	--fs-p: clamp(0.88rem, 0.22vi + 0.82rem, 1rem);
@@ -90,6 +97,22 @@
 
 [hidden] {
 	display: none;
+}
+
+.dark {
+	color-scheme: dark;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
 }
 
 *,
@@ -117,7 +140,7 @@ svg {
 }
 
 svg {
-	stroke: var(--clr-accent)
+	stroke: light-dark(var(--clr-accent), var(--clr-white));
 }
 
 input,
@@ -129,8 +152,8 @@ select {
 
 body {
 	margin: 0;
-	background: var(--clr-white);
-	color: var(--clr-black);
+	background: var(--ld-white);
+	color: var(--ld-primary);
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -143,7 +166,7 @@ hr {
 }
 
 .light-hr {
-	background: var(--clr-secondary);
+	background: var(--ld-secondary);
 }
 
 p,
@@ -195,7 +218,7 @@ h1,
 	font-family: var(--ff-heading);
 	font-weight: 700;
 	margin-top: 0;
-	color: var(--clr-primary);
+	color: var(--ld-primary);
 	font-size: var(--fs-h1);
 	position: relative;
 	overflow: visible;
@@ -203,9 +226,7 @@ h1,
 	&::before {
 		content: attr(data-name);
 		display: block;
-		/* color: var(--clr-accent); */
-		background: linear-gradient(90deg, var(--clr-white) 10%, var(--clr-accent) 40%, var(--clr-accent) 60%, var(--clr-white) 90%);
-		background-clip: text;
+		background: text linear-gradient(90deg, var(--ld-white) 10%, light-dark(var(--clr-accent), var(--clr-black)) 40%, light-dark(var(--clr-accent), var(--clr-black)) 60%, var(--ld-white) 90%);
 		-webkit-text-fill-color: transparent;
 		margin-bottom: 0.5rem;
 		opacity: 0.075;
@@ -217,6 +238,17 @@ h1,
 		width: max-content;
 		font-family: var(--ff-accent);
 		font-weight: 400;
+		z-index: -1
+	}
+}
+
+.dark {
+
+	& h1,
+	& .h1 {
+		&::before {
+			opacity: 0.25;
+		}
 	}
 }
 
@@ -253,7 +285,7 @@ h4,
 	font-family: var(--ff-body);
 	text-transform: uppercase;
 	letter-spacing: 0.25ch;
-	color: var(--clr-secondary);
+	color: var(--ld-secondary);
 }
 
 p,
@@ -263,7 +295,7 @@ p,
 	line-height: 1.45;
 
 	& a:not(.btn):not(.btn-secondary) {
-		color: var(--clr-txt-accent);
+		color: light-dark(var(--clr-txt-accent), var(--clr-secondary));
 		position: relative;
 		transition: color cubic-bezier(0.54, 0.78, 0.34, 1.23) 0.15s;
 		font-style: italic;
@@ -271,14 +303,14 @@ p,
 		font-weight: 400;
 
 		&:visited {
-			color: var(--clr-accent)
+			color: light-dark(var(--clr-accent), var(--clr-white));
 		}
 
 		&::before {
 			content: "";
 			width: 0%;
 			height: 100%;
-			background-color: var(--clr-secondary);
+			background-color: light-dark(var(--clr-secondary), var(--clr-txt-accent));
 			z-index: -1;
 			position: absolute;
 			left: -0.25ch;
@@ -287,7 +319,7 @@ p,
 		}
 
 		&:hover {
-			color: var(--clr-primary);
+			color: light-dark(var(--clr-primary), var(--clr-white));
 
 			&::before {
 				width: calc(100% + 0.5ch);
@@ -299,7 +331,7 @@ p,
 a:not(.btn):not(.btn-secondary) {
 	color: inherit;
 	transition: all ease 0.15s;
-	text-decoration-color: var(--clr-secondary);
+	text-decoration-color: light-dark(var(--clr-secondary), var(--clr-txt-accent));
 	text-decoration-thickness: 2px;
 	text-underline-offset: 3px;
 	position: relative;
@@ -309,13 +341,12 @@ a:not(.btn):not(.btn-secondary) {
 		content: "";
 		width: 0%;
 		height: 100%;
-		background-color: var(--clr-secondary);
+		background-color: light-dark(var(--clr-secondary), var(--clr-txt-accent));
 		position: absolute;
 		left: -0.5ch;
 		bottom: 0;
 		z-index: -1;
-		transition:
-			width cubic-bezier(0.54, 0.78, 0.34, 1.23) 0.15s,
+		transition: width cubic-bezier(0.54, 0.78, 0.34, 1.23) 0.15s,
 			padding cubic-bezier(0.54, 0.78, 0.34, 1.23) 0.15s;
 	}
 
@@ -415,7 +446,6 @@ button,
 		background-color: var(--clr-white);
 	}
 
-	/* biome-ignore lint/style/noDescendingSpecificity: false positive  */
 	&:hover {
 		transform: scale(1.05);
 		filter: brightness(1);
@@ -500,4 +530,57 @@ input[type="radio"]:checked {
 header .content-width {
 	display: flex;
 	justify-content: space-between;
+}
+
+/* theme selector */
+
+.theme-selector {
+	position: fixed;
+	right: 1.5rem;
+	top: 1.5rem;
+	z-index: 1000;
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem;
+	background-color: white;
+	border-radius: 1rem;
+	height: 2rem;
+	box-shadow: 0 0 10px -8px var(--clr-accent);
+
+	& label {
+		height: 1rem;
+		opacity: 0.5;
+		transition: opacity ease 0.15s, scale ease 0.15s;
+		cursor: pointer;
+		;
+
+		&:hover {
+			scale: 1.1;
+			opacity: 1;
+
+			& svg {
+				fill: var(--clr-secondary);
+			}
+		}
+	}
+
+	& input+label svg {
+		stroke: var(--clr-accent);
+	}
+
+	& input:checked+label {
+		opacity: 1;
+		cursor: default;
+
+		& svg {
+			fill: var(--clr-secondary);
+		}
+
+		&:hover {
+			scale: 1;
+
+		}
+	}
 }

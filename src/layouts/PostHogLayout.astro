@@ -1,5 +1,6 @@
 ---
 import PostHog from "../components/posthog.astro";
+import { ThemeSelector } from "../components/theme-selector.jsx";
 import "../styles/global.css";
 const STRAPI_ROOT = import.meta.env.STRAPI_ROOT;
 
@@ -15,12 +16,18 @@ const globalData = json.data;
     <meta name="description" content={globalData.default_description} />
     <title>{globalData.site_name}</title>
     <link rel="icon" href=`${globalData.Favicon.url}` />
-    <!-- <link rel="preconnect" href="https://use.typekit.net" />
-    <link rel="stylesheet" href="https://use.typekit.net/deh7bqm.css" media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href="https://use.typekit.net/deh7bqm.css" /></noscript> -->
+
+    <script>
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    </script>
   </head>
   <body>
     <slot />
     <PostHog />
+    <ThemeSelector client:load className="theme-selector" />
   </body>
 </html>
