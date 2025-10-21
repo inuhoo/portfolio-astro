@@ -15,7 +15,7 @@ const globalData = json.data;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={globalData.default_description} />
     <title>{globalData.site_name}</title>
-    <link rel="icon" href=`${globalData.Favicon.url}` />
+    <link rel="icon" href=`${globalData.Favicon.url}` sizes="any" />
 
     <script>
     const savedTheme = localStorage.getItem('theme');
