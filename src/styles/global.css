@@ -54,18 +54,6 @@
 	/* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-/* space-grotesk-regular - latin */
-@font-face {
-	font-display: swap;
-	/* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-	font-family: 'Space Grotesk';
-	font-style: normal;
-	font-weight: 400;
-	src: url('../fonts/space-grotesk-v22-latin-regular.woff2') format('woff2');
-	/* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-
 :root {
 	isolation: isolate;
 
@@ -81,7 +69,6 @@
 	--ld-secondary: light-dark(var(--clr-secondary), var(--clr-txt-accent));
 	--ld-accent: light-dark(var(--clr-accent), var(--clr-white));
 
-
 	--fs-xs: clamp(0.61rem, -0.08vi + 0.63rem, 0.56rem);
 	--fs-s: clamp(0.73rem, 0.04vi + 0.72rem, 0.75rem);
 	--fs-p: clamp(0.88rem, 0.22vi + 0.82rem, 1rem);
@@ -92,7 +79,6 @@
 
 	--ff-body: "IBM Plex Mono", "JetBrains Mono", "Courier New", Courier, monospace;
 	--ff-heading: "Spectral", Georgia, Times, "Times New Roman", serif, system-ui;
-	--ff-accent: "Space Grotesk", "Montserrat", sans-serif, system-ui;
 }
 
 [hidden] {
@@ -300,8 +286,7 @@ p,
 		position: relative;
 		transition: color cubic-bezier(0.54, 0.78, 0.34, 1.23) 0.15s;
 		font-style: italic;
-		font-family: var(--ff-accent);
-		font-weight: 400;
+		font-family: var(--ff-body);
 
 		&:visited {
 			color: light-dark(var(--clr-accent), var(--clr-white));
