@@ -8,11 +8,7 @@ import { defineConfig } from "astro/config";
 import sitemap from '@astrojs/sitemap';
 
 const options = {
-  // You can specify fallbacks as an array (applies to all fonts)
-  fallbacks: {
-    'IMB Plex Mono': 'Courier New',
-    "Spectral": 'Georgia'
-  },
+  fallbacks: ['Courier New', 'Georgia']
 }
 
 export default defineConfig({
