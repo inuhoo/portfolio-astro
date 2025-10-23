@@ -5,6 +5,8 @@ import { FontaineTransform } from 'fontaine'
 import beasties from 'astro-beasties';
 import { defineConfig } from "astro/config";
 
+import sitemap from '@astrojs/sitemap';
+
 const options = {
   // You can specify fallbacks as an array (applies to all fonts)
   fallbacks: {
@@ -14,7 +16,7 @@ const options = {
 }
 
 export default defineConfig({
-    integrations: [react(), beasties()],
+    integrations: [react(), beasties(), sitemap()],
         image: {
         domains: ['localhost:1337', 'majestic-garden-e773358a80.strapiapp.com'],
         remotePatterns: [
