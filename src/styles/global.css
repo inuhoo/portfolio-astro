@@ -399,7 +399,7 @@ button,
 	cursor: pointer;
 	background-color: var(--clr-secondary);
 	border: solid 2px var(--clr-secondary);
-	color: var(--clr-black);
+	color: var(--clr-primary);
 	overflow: hidden;
 	z-index: 1;
 	transform: scale(1);
