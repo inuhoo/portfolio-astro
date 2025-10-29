@@ -45,16 +45,15 @@
 :root {
 	isolation: isolate;
 
-	--clr-primary: rgb(40 55 70 / 1);
-	--clr-secondary: rgb(0 255 200 / 1);
-	--clr-accent: rgb(0 95 90 / 1);
-	--clr-txt-accent: rgb(165 50 70 / 1);
-	--clr-white: rgb(235 245 240 / 1);
-	--clr-black: rgb(30 35 50 / 1);
+	--clr-primary: #1D37B5;
+	--clr-secondary: #00FFD4;
+	--clr-accent: #FF0059;
+	--clr-white: hsl(150 33% 94%);
+	--clr-black: hsl(225 25% 16%);
 
 	--ld-white: light-dark(var(--clr-white), var(--clr-primary));
 	--ld-primary: light-dark(var(--clr-primary), var(--clr-white));
-	--ld-secondary: light-dark(var(--clr-secondary), var(--clr-txt-accent));
+	--ld-secondary: light-dark(var(--clr-secondary), var(--clr-secondary));
 	--ld-accent: light-dark(var(--clr-accent), var(--clr-white));
 
 	--fs-xs: clamp(0.61rem, -0.08vi + 0.63rem, 0.56rem);
@@ -114,7 +113,7 @@ svg {
 }
 
 svg {
-	stroke: light-dark(var(--clr-accent), var(--clr-white));
+	stroke: light-dark(var(--clr-primary), var(--clr-white));
 }
 
 input,
@@ -200,7 +199,7 @@ h1,
 	&::before {
 		content: attr(data-name);
 		display: block;
-		background: text light-dark(var(--clr-accent), var(--clr-black));
+		background: text light-dark(var(--clr-secondary), var(--clr-black));
 		scale: 2;
 		-webkit-text-fill-color: transparent;
 		margin-bottom: 0.025rem;
@@ -270,21 +269,21 @@ p,
 	line-height: 1.45;
 
 	& a:not(.btn):not(.btn-secondary) {
-		color: light-dark(var(--clr-txt-accent), var(--clr-secondary));
+		color: light-dark(var(--clr-accent), var(--clr-secondary));
 		position: relative;
 		transition: color cubic-bezier(0.54, 0.78, 0.34, 1.23) 0.15s;
 		font-style: italic;
 		font-family: var(--ff-body);
 
 		&:visited {
-			color: light-dark(var(--clr-accent), var(--clr-white));
+			color: light-dark(var(--clr-primary), var(--clr-white));
 		}
 
 		&::before {
 			content: "";
 			width: 0%;
 			height: 100%;
-			background-color: light-dark(var(--clr-secondary), var(--clr-txt-accent));
+			background-color: light-dark(var(--clr-secondary), var(--clr-secondary));
 			z-index: -1;
 			position: absolute;
 			left: -0.25ch;
@@ -293,7 +292,7 @@ p,
 		}
 
 		&:hover {
-			color: light-dark(var(--clr-primary), var(--clr-white));
+			color: light-dark(var(--clr-primary), var(--clr-black));
 
 			&::before {
 				width: calc(100% + 0.5ch);
@@ -305,7 +304,7 @@ p,
 a:not(.btn):not(.btn-secondary) {
 	color: inherit;
 	transition: all ease 0.15s;
-	text-decoration-color: light-dark(var(--clr-secondary), var(--clr-txt-accent));
+	text-decoration-color: light-dark(var(--clr-secondary), var(--clr-secondary));
 	text-decoration-thickness: 2px;
 	text-underline-offset: 3px;
 	position: relative;
@@ -315,7 +314,7 @@ a:not(.btn):not(.btn-secondary) {
 		content: "";
 		width: 0%;
 		height: 100%;
-		background-color: light-dark(var(--clr-secondary), var(--clr-txt-accent));
+		background-color: light-dark(var(--clr-secondary), var(--clr-secondary));
 		position: absolute;
 		left: -0.5ch;
 		bottom: 0;
@@ -327,6 +326,10 @@ a:not(.btn):not(.btn-secondary) {
 	&:hover::before {
 		padding: 0 1ch;
 		width: calc(100% + 1ch);
+	}
+
+	&:hover svg {
+		stroke: light-dark(var(--clr-primary), var(--clr-black));
 	}
 }
 
@@ -541,7 +544,7 @@ header .content-width {
 	}
 
 	& input+label svg {
-		stroke: var(--clr-accent);
+		stroke: var(--clr-primary);
 	}
 
 	& input:checked+label {
